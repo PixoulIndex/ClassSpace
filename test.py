@@ -1,14 +1,18 @@
-<<<<<<< Updated upstream
-print("Success")
-
-
-a = "test1"
-=======
 import firebase_admin
 from firebase_admin import credentials
+from firebase_admin import firestore
 
-cred = credentials.Certificate("path/to/serviceAccountKey.json")
+cred = credentials.Certificate("serviceAccountKey.json")
 firebase_admin.initialize_app(cred)
 
+db = firestore.client()
 
->>>>>>> Stashed changes
+#Add to documents
+data = {'name': 'Kenny'}
+#db.collection('persons').add(data) #use this to auto generate ID
+#db.collection('persons').document("Kenny's").set(data) #set ID
+
+#Read file/documents
+result = db.collection('persons').document("Kenny's").get()
+if result.exists:
+    print(result.to_dict())
