@@ -12,7 +12,12 @@ data = {'name': 'Kenny'}
 #db.collection('persons').add(data) #use this to auto generate ID
 #db.collection('persons').document("Kenny's").set(data) #set ID
 
-#Read file/documents
-result = db.collection('persons').document("Kenny's").get()
-if result.exists:
-    print(result.to_dict())
+#Read file/documents with known ID
+# result = db.collection('persons').document("Kenny's").get()
+# if result.exists:
+#     print(result.to_dict())
+
+#get all document in the collection
+docs = db.collection('persons').get()
+for doc in docs:
+    print(doc.to_dict())
