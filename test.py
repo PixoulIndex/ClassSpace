@@ -8,4 +8,4 @@ firebase_admin.initialize_app(cred)
 
 print("Success")
 a = "test1"
-print("\nHello\n")
+print("\nHello test\n")
