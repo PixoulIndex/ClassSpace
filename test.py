@@ -8,7 +8,7 @@ firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 #Add to documents
-data = {'name': 'Kenny'}
+data = {'name': 'Kevin'}
 #db.collection('persons').add(data) #use this to auto generate ID
 #db.collection('persons').document("Kenny's").set(data) #set ID
 
