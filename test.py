@@ -1,4 +1,3 @@
-
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
@@ -8,9 +7,17 @@ firebase_admin.initialize_app(cred)
 
 db = firestore.client()
 
-db.collection('persons').add({'name': 'Ryan'})
+#Add to documents
+data = {'name': 'Kenny'}
+#db.collection('persons').add(data) #use this to auto generate ID
+#db.collection('persons').document("Kenny's").set(data) #set ID
 
-print("Success")
-print("Hello Test")
+#Read file/documents with known ID
+# result = db.collection('persons').document("Kenny's").get()
+# if result.exists:
+#     print(result.to_dict())
 
-a = "test1"
+#get all document in the collection
+docs = db.collection('persons').get()
+for doc in docs:
+    print(doc.to_dict())
